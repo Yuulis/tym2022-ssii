@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="img/Yuulis_icon.png">
+    <link rel="stylesheet" href="style.css">
+
+    <title>5. 学習結果 | 協調型マルチエージェント強化学習による避難学習</title>
+</head>
+
+<body>
+    <div class="pageback">
+        <div class="pagebody">
+            <h1><u>学習結果</u></h1>
+
+            <p><a href="index.html">&lt;&lt;&lt; Topに戻る</a>
+            </p>
+
+            <h2 class="heading">実際にはどう動くのか</h2>
+            <p>今回の学習結果です。避難が完了したエージェントはフィールドから消えるようになっていますが、なぜかExitから飛び出してきて動かなくなるバグが頻発しています...ちゃんと処理はできているので大丈夫なのですが。
+            </p>
+            <iframe class="centering" width="720" height="480" src="https://www.youtube.com/embed/JLl6fy74i-c"
+                title="協調型マルチエージェント強化学習による避難学習" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+
+            <h2 class="heading">学習の記録</h2>
+            <p>今回の学習の記録です。</p>
+
+            <h3>報酬曲線</h3>
+            <p>エージェントが得た報酬の、10000エピソードあたりの平均値の推移を示すグラフです(青がPPO、赤がMA-POCA)。横軸がエピソード数、縦軸が獲得報酬です。
+            </p>
+            <p>PPOでは平均報酬が6.0弱で上下を繰り返しており、なかなか安定しません。それに対してMA-POCAでは、40万エピソード後から平均報酬が9.7~9.8でほぼ収束し、安定した学習ができたことが分かります。
+            </p>
+            <p><img src="images/chapter5/Environment_Cumulative Reward.svg" alt="報酬曲線(PPO)"></p>
+            <p><img src="images/chapter5/Environment_Group Cumulative Reward.svg" alt="報酬曲線(MA-POCA)"></p>
+
+            <h3>エピソード長曲線</h3>
+            <p>10000エピソードあたりの、1エピソードの長さの平均値の推移を示すグラフです。横軸がエピソード数、縦軸が長さです。
+            </p>
+            <p>今回は避難に時間がかかるほど罰が与えられるようになっているので、学習が進むごとにエピソード長は短くなっています。こちらでも、MA-POCAの方がより早く、短い時間で避難完了できていることが分かります。</p>
+            <p><img src="images/chapter5/Environment_Episode Length.svg" alt="エピソード長曲線"></p>
+
+            <p class="footer">学習結果の紹介は以上です。</p>
+        </div>
+
+        <div class="footer">
+            <p><small>2022 &copy;<a href="https://yuulis.github.io/Yuulis-Home/" target="_blank"
+                        rel="noopener noreferrer">Yuulis</a></small></p>
+        </div>
+    </div>
+</body>
+
+</html>
