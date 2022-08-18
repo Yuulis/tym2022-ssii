@@ -23,7 +23,7 @@
             <p>「機械学習なら聞いたことある！」という方は多いのではないでしょうか。<b>機械学習(Machine
                     Learning)</b>というのは、<b>人工知能のプログラムが大量のデータを学習し、その学習で得た経験に基づいて識別や予測を行うアルゴリズム(与えられた課題に対しての解決策)を自動で構築する技術全般</b>を指します。実は機械学習には、主に3つの手法が存在します。<b>教師あり学習</b>、<b>教師なし学習</b>、そして<b>強化学習</b>です。
             </p>
-            <p><img src="images/MachineLearningDiagram.png" alt="機械学習のグループ分け"></p>
+            <p><img src="images/chapter3/MachineLearningDiagram.png" alt="機械学習のグループ分け"></p>
             <p class="centering"><small>出典: <a
                         href="https://mse238blog.stanford.edu/2017/07/choftun/the-building-blocks-of-machine-learning/"
                         target="_blank" rel="noopener noreferrer">Stanford
@@ -54,17 +54,17 @@
             <h3>学習モード</h3>
             <p>学習モードでは、学習用のスクリプトがUnity環境に接続することでエージェントが学習を開始します。その際の学習アルゴリズムは、⑤ポリシー更新で利用されます。<b>ポリシー</b>はいわゆる<b>エージェントが高い報酬を得られるようにするための戦略</b>のようなもので、これが行動の決定につながります。学習終了時には、学習済みのポリシーがモデルファイルとして出力されます。
             </p>
-            <p><img src="images/mlagents_learning.png" alt="学習モード"></p>
+            <p><img src="images/chapter3/mlagents_learning.png" alt="学習モード"></p>
 
             <h3>推論モード</h3>
             <p>推論モードでは、「学習モード」で出力されたモデルファイルをUnity環境に読み込み、エージェントのポリシーとして使用します。<a href="chapter5.html">5.
                     学習結果</a>に掲載している動画の様子が「推論モード」です。このモードでは、学習用のスクリプトは利用せず、エージェントのポリシー更新なども行われません。</p>
-            <p><img src="images/mlagents_inference.png" alt="推論モード"></p>
+            <p><img src="images/chapter3/mlagents_inference.png" alt="推論モード"></p>
 
             <h3>ヒューリスティックモード</h3>
             <p>ヒューリスティックモードでは、ポリシーの代わりに人間がエージェントの操作を行います。主に、Unity環境の動作チェックや、人工知能と人間の対戦などの場面で利用されます。このモードでも、学習用のスクリプトは利用せず、やエージェントのポリシー更新なども行われません。
             </p>
-            <p><img src="images/mlagnets_heuristic.png" alt="ヒューリスティックモード"></p>
+            <p><img src="images/chapter3/mlagnets_heuristic.png" alt="ヒューリスティックモード"></p>
 
             <p>また、強化学習のサイクルについても説明します。</p>
             <p>まずは強化学習サイクルの単位から。強化学習における、<b>1回分の学習</b>(ゲーム開始からゲームオーバーまで)を<b>エピソード</b>といいます。エージェントはこの1エピソードでもらえる報酬を最大化しようと学習を繰り返します。
@@ -73,7 +73,7 @@
             </p>
 
             <p>そこで、1エピソードの強化学習サイクルの流れは、以下のようになります。</p>
-            <p><img src="images/mlagents_cycle.png" alt="強化学習のサイクル"></p>
+            <p><img src="images/chapter3/mlagents_cycle.png" alt="強化学習のサイクル"></p>
             <h3>①環境観察</h3>
             <p>エージェントが学習環境の情報を受け取ります。情報の受け取り方は、自分の今の座標を数値で直接受け取ったり、周囲にレーザーを発射して検知するものがあるかどうかを調べたりなど、様々な方法があります。</p>
             <h3>②行動決定</h3>
@@ -106,7 +106,7 @@
                     Assignment</b>(MA-POCA)があります。</p>
             <p>MA-POCAでは「Attention」と呼ばれる、動的な入力を処理できるニューラルネットワークを使用しており、これはコーチ(Critic)が任意の数のエージェント(Actor)を処理できるということであり、複数のエージェントをグループとして扱うことで集中学習・分散実行を可能にしています。また、エージェントを任意のタイミングで学習から外したり追加したりできるのです。
             </p>
-            <p><img src="images/ma-poca.png" alt="集中学習"></p>
+            <p><img src="images/chapter3/ma-poca.png" alt="集中学習"></p>
             <p class="centering"><small>出典: <a
                         href="https://morikatron.ai/2021/08/gdc_creating-cooperative-character-behaviors/"
                         target="_blank" rel="noopener noreferrer">【GDC 2021】マルチエージェント強化学習における協調行動の5つの特徴</a></small></p>
