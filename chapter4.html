@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="img/Yuulis_icon.png">
+    <link rel="stylesheet" href="style.css">
+
+    <title>4. 研究方法 | 協調型マルチエージェント強化学習による避難学習</title>
+</head>
+
+<body>
+    <div class="pageback">
+        <div class="pagebody">
+            <h1><u>研究方法</u></h1>
+            <p><a href="index.html">&lt;&lt;&lt; Topに戻る</a></p>
+
+            <h2 class="heading">学習環境の詳細</h2>
+
+            こちらは、ポスターでも紹介した、今回の学習環境の詳細です。
+            <p><img src="images/chapter4/environment.png" alt="学習環境の詳細"></p>
+            <p>また、エージェントの観察と行動は以下のように行われます。</p>
+            <p><img src="images/chapter4/observation-action.png" alt="エージェントの観察と行動"></p>
+
+            <h3>各オブジェクトの仕様</h3>
+            <table border="1">
+                <tr>
+                    <th>オブジェクト名</th>
+                    <th>仕様</th>
+                </tr>
+                <tr>
+                    <th>Field</th>
+                    <td>
+                        AgentやExit、Obstacleが生成される。広さは縦20マス、横30マス。
+                    </td>
+                </tr>
+                <tr>
+                    <th>Agent</th>
+                    <td>
+                        フィールドの白いマス(Empty)にランダムな位置で10体生成される。移動は5フレームごとに行われ、複数のエージェントが同じマスに移動することも可能。移動するごとに<font color="blue"><u>-0.001</u></font>の罰が与えられる。
+                    </td>
+                </tr>
+                <tr>
+                    <th>Obstacle</th>
+                    <td>位置は固定。Agentはこのマスに移動することはできない。</td>
+                </tr>
+                <tr>
+                    <th>Exit</th>
+                    <td>位置は固定。Agentがこのマスに移動すると、そのAgentは避難完了となる。全てのAgentが避難完了すると<font color="red"><u>1.0</u></font>の報酬が与えられ、次のエピソードが開始する。</td>
+                </tr>
+            </table>
+
+            <h2 class="heading">プログラムフローチャート</h2>
+            <p>強化学習サイクル1エピソード内のプログラムの簡単なフローチャートです。メインプログラムは左端の「EpisodeStart」から始まり、「EndEpisode」で終わります。</p>
+            <p>ただし、このプログラムのフローチャートは、<a href="chapter3.html">3.
+                    強化学習とは?</a>で説明した「学習用のスクリプト」ではありません。エージェントがどのように環境観察を行うかや、報酬の与え方を記述したプログラムです。学習環境の中に含まれていると考えてください。
+            </p>
+            <p><img class="flowchart" src="img/flowchart.png" alt="フローチャート"></p>
+
+            <p class="footer">研究方法の説明は以上です。</p>
+        </div>
+
+        <div class="footer">
+            <p><small>2022 &copy;<a href="https://yuulis.github.io/Yuulis-Home/" target="_blank"
+                        rel="noopener noreferrer">Yuulis</a></small></p>
+        </div>
+    </div>
+</body>
+
+</html>
