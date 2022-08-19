@@ -8,6 +8,16 @@
     <link rel="shortcut icon" type="image/png" href="img/Yuulis_icon.png">
     <link rel="stylesheet" href="style.css">
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5FGYGJEC8P"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-5FGYGJEC8P');
+    </script>
+
     <title>4. 研究方法 | 協調型マルチエージェント強化学習による避難学習</title>
 </head>
 
@@ -39,7 +49,8 @@
                 <tr>
                     <th>Agent</th>
                     <td>
-                        フィールドの白いマス(Empty)にランダムな位置で10体生成される。移動は5フレームごとに行われ、複数のエージェントが同じマスに移動することも可能。移動するごとに<font color="blue"><u>-0.001</u></font>の罰が与えられる。
+                        フィールドの白いマス(Empty)にランダムな位置で10体生成される。移動は5フレームごとに行われ、複数のエージェントが同じマスに移動することも可能。移動するごとに<font
+                            color="blue"><u>-0.001</u></font>の罰が与えられる。
                     </td>
                 </tr>
                 <tr>
@@ -48,7 +59,8 @@
                 </tr>
                 <tr>
                     <th>Exit</th>
-                    <td>位置は固定。Agentがこのマスに移動すると、そのAgentは避難完了となる。全てのAgentが避難完了すると<font color="red"><u>1.0</u></font>の報酬が与えられ、次のエピソードが開始する。</td>
+                    <td>位置は固定。Agentがこのマスに移動すると、そのAgentは避難完了となる。全てのAgentが避難完了すると<font color="red"><u>1.0</u></font>
+                        の報酬が与えられ、次のエピソードが開始する。</td>
                 </tr>
             </table>
 

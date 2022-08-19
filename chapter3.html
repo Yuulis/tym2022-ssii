@@ -2,126 +2,139 @@
 <html lang="ja">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/png" href="img/Yuulis_icon.png">
-    <link rel="stylesheet" href="style.css">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" type="image/png" href="img/Yuulis_icon.png">
+        <link rel="stylesheet" href="style.css">
 
-    <title>3. 強化学習とは? | 協調型マルチエージェント強化学習による避難学習</title>
+        Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-5FGYGJEC8P"></script>
+        <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag() { dataLayer.push(arguments); }
+                gtag('js', new Date());
+
+                gtag('config', 'G-5FGYGJEC8P');
+        </script>
+
+        <title>3. 強化学習とは? | 協調型マルチエージェント強化学習による避難学習</title>
 </head>
 
 <body>
-    <div class="pageback">
-        <div class="pagebody">
-            <h1><u>協調型マルチエージェント強化学習とは？</u></h1>
+        <div class="pageback">
+                <div class="pagebody">
+                        <h1><u>協調型マルチエージェント強化学習とは？</u></h1>
 
-            <p><a href="index.html">&lt;&lt;&lt; Topに戻る</a></p>
+                        <p><a href="index.html">&lt;&lt;&lt; Topに戻る</a></p>
 
-            <h2 class="heading">機械学習 = 強化学習ではない！</h2>
+                        <h2 class="heading">機械学習 = 強化学習ではない！</h2>
 
-            <p>「機械学習なら聞いたことある！」という方は多いのではないでしょうか。<b>機械学習(Machine
-                    Learning)</b>というのは、<b>人工知能のプログラムが大量のデータを学習し、その学習で得た経験に基づいて識別や予測を行うアルゴリズム(与えられた課題に対しての解決策)を自動で構築する技術全般</b>を指します。実は機械学習には、主に3つの手法が存在します。<b>教師あり学習</b>、<b>教師なし学習</b>、そして<b>強化学習</b>です。
-            </p>
-            <p><img src="images/chapter3/MachineLearningDiagram.png" alt="機械学習のグループ分け"></p>
-            <p class="centering"><small>出典: <a
-                        href="https://mse238blog.stanford.edu/2017/07/choftun/the-building-blocks-of-machine-learning/"
-                        target="_blank" rel="noopener noreferrer">Stanford
-                        University -The Building Blocks of ML</a></small></p>
+                        <p>「機械学習なら聞いたことある！」という方は多いのではないでしょうか。<b>機械学習(Machine
+                                        Learning)</b>というのは、<b>人工知能のプログラムが大量のデータを学習し、その学習で得た経験に基づいて識別や予測を行うアルゴリズム(与えられた課題に対しての解決策)を自動で構築する技術全般</b>を指します。実は機械学習には、主に3つの手法が存在します。<b>教師あり学習</b>、<b>教師なし学習</b>、そして<b>強化学習</b>です。
+                        </p>
+                        <p><img src="images/chapter3/MachineLearningDiagram.png" alt="機械学習のグループ分け"></p>
+                        <p class="centering"><small>出典: <a
+                                                href="https://mse238blog.stanford.edu/2017/07/choftun/the-building-blocks-of-machine-learning/"
+                                                target="_blank" rel="noopener noreferrer">Stanford
+                                                University -The Building Blocks of ML</a></small></p>
 
-            <h3>1. 教師あり学習(Supervised Learning) / 教師なし学習(Unsupervised Learning)</h3>
-            <p>教師あり学習は、<b>「入力」と「正しい出力」が結びついた学習データを与え、ある入力があったときに正しい出力を返すアルゴリズムを構築する</b>方法です。電子メールのスパム判定や、機械の故障予測などが例として挙げられます。
-            </p>
-            <p>それに対して、教師なし学習は、<b>「入力」のみが与えられ、その中に潜在するパターンなどを読み取って出力するアルゴリズムを構築する</b>方法です。コンビニなどの購買データの分析や、画像認識などに使われています。
-            </p>
+                        <h3>1. 教師あり学習(Supervised Learning) / 教師なし学習(Unsupervised Learning)</h3>
+                        <p>教師あり学習は、<b>「入力」と「正しい出力」が結びついた学習データを与え、ある入力があったときに正しい出力を返すアルゴリズムを構築する</b>方法です。電子メールのスパム判定や、機械の故障予測などが例として挙げられます。
+                        </p>
+                        <p>それに対して、教師なし学習は、<b>「入力」のみが与えられ、その中に潜在するパターンなどを読み取って出力するアルゴリズムを構築する</b>方法です。コンビニなどの購買データの分析や、画像認識などに使われています。
+                        </p>
 
-            <h3>2. 強化学習 (Reinforcement Learning)</h3>
-            <p>強化学習では、「入力」や「出力」は与えられず、<b>ある「環境」の中で、行動に対して与えられる報酬を最大化するアルゴリズムを構築する</b>方法です。5年前に、囲碁の人工知能「Alpha
-                Go」が世界王者に勝利したという大事件が起きました。Alpha Goは強化学習で自分自身との対戦を繰り返し、急成長しました。</p>
-            <p>さらに強化学習は、人間の脳の仕組みを再現した「ニューラルネットワーク」を用いた、<b>深層学習(Deep Learning)</b>と組合わせて、<b>深層強化学習(Deep Reinforcement
-                    Learning)</b>という手法に応用されています。強化学習の概念自体は機械学習が生まれた当初にありましたが、近年、深層強化学習が登場し技術がより一層発展することとなりました。今回使用しているML-Agentsも深層強化学習のライブラリです。
-            </p>
+                        <h3>2. 強化学習 (Reinforcement Learning)</h3>
+                        <p>強化学習では、「入力」や「出力」は与えられず、<b>ある「環境」の中で、行動に対して与えられる報酬を最大化するアルゴリズムを構築する</b>方法です。5年前に、囲碁の人工知能「Alpha
+                                Go」が世界王者に勝利したという大事件が起きました。Alpha Goは強化学習で自分自身との対戦を繰り返し、急成長しました。</p>
+                        <p>さらに強化学習は、人間の脳の仕組みを再現した「ニューラルネットワーク」を用いた、<b>深層学習(Deep Learning)</b>と組合わせて、<b>深層強化学習(Deep
+                                        Reinforcement
+                                        Learning)</b>という手法に応用されています。強化学習の概念自体は機械学習が生まれた当初にありましたが、近年、深層強化学習が登場し技術がより一層発展することとなりました。今回使用しているML-Agentsも深層強化学習のライブラリです。
+                        </p>
 
-            <h2 class="heading">強化学習ライブラリML-Agentsの仕組み</h2>
+                        <h2 class="heading">強化学習ライブラリML-Agentsの仕組み</h2>
 
-            <p>ここからは、私が今回の研究に用いた、<a href="https://unity.com/ja" target="_blank"
-                    rel="noopener noreferrer">Unity</a>で強化学習を扱うライブラリ<a
-                    href="https://unity.com/ja/products/machine-learning-agents" target="_blank"
-                    rel="noopener noreferrer">ML-Agents</a>の仕組みを簡単に説明します。ここはポスターの内容とは少しずれるので、強化学習のサイクルについての説明を読んでいただければ次の項目も理解できると思います。
-            </p>
-            <p>ML-Agentsの実行モードには、<b>学習モード</b>、<b>推論モード</b>、<b>ヒューリスティックモード</b>の3つのモードがあります。</p>
+                        <p>ここからは、私が今回の研究に用いた、<a href="https://unity.com/ja" target="_blank"
+                                        rel="noopener noreferrer">Unity</a>で強化学習を扱うライブラリ<a
+                                        href="https://unity.com/ja/products/machine-learning-agents" target="_blank"
+                                        rel="noopener noreferrer">ML-Agents</a>の仕組みを簡単に説明します。ここはポスターの内容とは少しずれるので、強化学習のサイクルについての説明を読んでいただければ次の項目も理解できると思います。
+                        </p>
+                        <p>ML-Agentsの実行モードには、<b>学習モード</b>、<b>推論モード</b>、<b>ヒューリスティックモード</b>の3つのモードがあります。</p>
 
-            <h3>学習モード</h3>
-            <p>学習モードでは、学習用のスクリプトがUnity環境に接続することでエージェントが学習を開始します。その際の学習アルゴリズムは、⑤ポリシー更新で利用されます。<b>ポリシー</b>はいわゆる<b>エージェントが高い報酬を得られるようにするための戦略</b>のようなもので、これが行動の決定につながります。学習終了時には、学習済みのポリシーがモデルファイルとして出力されます。
-            </p>
-            <p><img src="images/chapter3/mlagents_learning.png" alt="学習モード"></p>
+                        <h3>学習モード</h3>
+                        <p>学習モードでは、学習用のスクリプトがUnity環境に接続することでエージェントが学習を開始します。その際の学習アルゴリズムは、⑤ポリシー更新で利用されます。<b>ポリシー</b>はいわゆる<b>エージェントが高い報酬を得られるようにするための戦略</b>のようなもので、これが行動の決定につながります。学習終了時には、学習済みのポリシーがモデルファイルとして出力されます。
+                        </p>
+                        <p><img src="images/chapter3/mlagents_learning.png" alt="学習モード"></p>
 
-            <h3>推論モード</h3>
-            <p>推論モードでは、「学習モード」で出力されたモデルファイルをUnity環境に読み込み、エージェントのポリシーとして使用します。<a href="chapter5.html">5.
-                    学習結果</a>に掲載している動画の様子が「推論モード」です。このモードでは、学習用のスクリプトは利用せず、エージェントのポリシー更新なども行われません。</p>
-            <p><img src="images/chapter3/mlagents_inference.png" alt="推論モード"></p>
+                        <h3>推論モード</h3>
+                        <p>推論モードでは、「学習モード」で出力されたモデルファイルをUnity環境に読み込み、エージェントのポリシーとして使用します。<a href="chapter5.html">5.
+                                        学習結果</a>に掲載している動画の様子が「推論モード」です。このモードでは、学習用のスクリプトは利用せず、エージェントのポリシー更新なども行われません。
+                        </p>
+                        <p><img src="images/chapter3/mlagents_inference.png" alt="推論モード"></p>
 
-            <h3>ヒューリスティックモード</h3>
-            <p>ヒューリスティックモードでは、ポリシーの代わりに人間がエージェントの操作を行います。主に、Unity環境の動作チェックや、人工知能と人間の対戦などの場面で利用されます。このモードでも、学習用のスクリプトは利用せず、やエージェントのポリシー更新なども行われません。
-            </p>
-            <p><img src="images/chapter3/mlagnets_heuristic.png" alt="ヒューリスティックモード"></p>
+                        <h3>ヒューリスティックモード</h3>
+                        <p>ヒューリスティックモードでは、ポリシーの代わりに人間がエージェントの操作を行います。主に、Unity環境の動作チェックや、人工知能と人間の対戦などの場面で利用されます。このモードでも、学習用のスクリプトは利用せず、やエージェントのポリシー更新なども行われません。
+                        </p>
+                        <p><img src="images/chapter3/mlagnets_heuristic.png" alt="ヒューリスティックモード"></p>
 
-            <p>また、強化学習のサイクルについても説明します。</p>
-            <p>まずは強化学習サイクルの単位から。強化学習における、<b>1回分の学習</b>(ゲーム開始からゲームオーバーまで)を<b>エピソード</b>といいます。エージェントはこの1エピソードでもらえる報酬を最大化しようと学習を繰り返します。
-            </p>
-            <p>一方、学習環境における<b>1フレーム</b>(ゲームなどで60fpsといったフレームレートを聞くと思いますが、あのフレームのこと)を<b>ステップ</b>と言います。エージェントは毎フレームごとに行動していているわけではなく、5フレームごとや10フレームごとおきに行動しています(環境の観察は毎フレーム行われている)。これは、エージェントの動きをコマ送りのようにして滑らかに見せるためです。もし毎フレームごとに行動したとすると、Unityの場合1フレームは約0.02秒ですから、カクカク震えているような動きになってしまいます。1エピソード内のステップ数は任意に設定することができます。
-            </p>
+                        <p>また、強化学習のサイクルについても説明します。</p>
+                        <p>まずは強化学習サイクルの単位から。強化学習における、<b>1回分の学習</b>(ゲーム開始からゲームオーバーまで)を<b>エピソード</b>といいます。エージェントはこの1エピソードでもらえる報酬を最大化しようと学習を繰り返します。
+                        </p>
+                        <p>一方、学習環境における<b>1フレーム</b>(ゲームなどで60fpsといったフレームレートを聞くと思いますが、あのフレームのこと)を<b>ステップ</b>と言います。エージェントは毎フレームごとに行動していているわけではなく、5フレームごとや10フレームごとおきに行動しています(環境の観察は毎フレーム行われている)。これは、エージェントの動きをコマ送りのようにして滑らかに見せるためです。もし毎フレームごとに行動したとすると、Unityの場合1フレームは約0.02秒ですから、カクカク震えているような動きになってしまいます。1エピソード内のステップ数は任意に設定することができます。
+                        </p>
 
-            <p>そこで、1エピソードの強化学習サイクルの流れは、以下のようになります。</p>
-            <p><img src="images/chapter3/mlagents_cycle.png" alt="強化学習のサイクル"></p>
-            <h3>①環境観察</h3>
-            <p>エージェントが学習環境の情報を受け取ります。情報の受け取り方は、自分の今の座標を数値で直接受け取ったり、周囲にレーザーを発射して検知するものがあるかどうかを調べたりなど、様々な方法があります。</p>
-            <h3>②行動決定</h3>
-            <p>①で得た情報によって、エージェントの持つポリシーが行動を決定します。初めはランダムな動きを見せますが、正しく学習すると報酬がより多くもらえるような行動をするようになります。</p>
-            <h3>③行動実行</h3>
-            <p>②でポリシーが決定した行動をエージェントが実行します。</p>
-            <h3>④報酬取得</h3>
-            <p>エージェントが③で行動した結果に応じて報酬を得ます。この時の報酬の与え方は、人間側が決めてあげる必要があります。</p>
-            <h3>⑤ポリシー更新</h3>
-            <p>①～④までで、「どんな状態でどんな行動をしたらどのくらい報酬が得られるか」という経験を得ます。その経験に応じてポリシーが更新されます。</p>
+                        <p>そこで、1エピソードの強化学習サイクルの流れは、以下のようになります。</p>
+                        <p><img src="images/chapter3/mlagents_cycle.png" alt="強化学習のサイクル"></p>
+                        <h3>①環境観察</h3>
+                        <p>エージェントが学習環境の情報を受け取ります。情報の受け取り方は、自分の今の座標を数値で直接受け取ったり、周囲にレーザーを発射して検知するものがあるかどうかを調べたりなど、様々な方法があります。
+                        </p>
+                        <h3>②行動決定</h3>
+                        <p>①で得た情報によって、エージェントの持つポリシーが行動を決定します。初めはランダムな動きを見せますが、正しく学習すると報酬がより多くもらえるような行動をするようになります。</p>
+                        <h3>③行動実行</h3>
+                        <p>②でポリシーが決定した行動をエージェントが実行します。</p>
+                        <h3>④報酬取得</h3>
+                        <p>エージェントが③で行動した結果に応じて報酬を得ます。この時の報酬の与え方は、人間側が決めてあげる必要があります。</p>
+                        <h3>⑤ポリシー更新</h3>
+                        <p>①～④までで、「どんな状態でどんな行動をしたらどのくらい報酬が得られるか」という経験を得ます。その経験に応じてポリシーが更新されます。</p>
 
-            <h2 class="heading">協調型マルチエージェント強化学習とは？</h2>
-            <p>強化学習で処理するタスクは大きく3つに分けられます。<b>シングルゲーム</b>、<b>対戦ゲーム</b>、<b>協調ゲーム</b>です(「ゲーム」とあるのは、これらの言葉がゲーム開発で強化学習を用いるときに生まれたものだから)。
-            </p>
+                        <h2 class="heading">協調型マルチエージェント強化学習とは？</h2>
+                        <p>強化学習で処理するタスクは大きく3つに分けられます。<b>シングルゲーム</b>、<b>対戦ゲーム</b>、<b>協調ゲーム</b>です(「ゲーム」とあるのは、これらの言葉がゲーム開発で強化学習を用いるときに生まれたものだから)。
+                        </p>
 
-            <h3>1. シングルゲーム (Single / Individual)</h3>
-            <p><b>単一のエージェント</b>が学習環境と相互作用し。環境下でのある行動に対する報酬から最適な行動を学習していきます。ブロック崩しなどが該当します。</p>
-            <h3>2. 対戦ゲーム (Competitive)</h3>
-            <p><b>二つの対立するエージェント</b>が勝敗を決めるために学習環境下で対戦し、エージェントは対戦を通して得られた報酬によって行動を最適化します。チェスや将棋などが該当します。</p>
-            <h3>3. 協調ゲーム (Cooperative)</h3>
-            <p><b>複数のエージェント</b>が単一の目標を達成するために学習環境下で協調しながら学習します。サッカーなどのチーム対戦型のゲーム全般が該当しますが、今回の避難学習のように、対立するエージェントの集団が存在しないタスクも対応可能です。
-            </p>
-            <p>従来の強化学習(深層強化学習)の仕組みではこのタスクに対応することが難しかったため、協調ゲームに特化した新たな技法<b>協調型マルチエージェント強化学習</b>が登場しました。</p>
+                        <h3>1. シングルゲーム (Single / Individual)</h3>
+                        <p><b>単一のエージェント</b>が学習環境と相互作用し。環境下でのある行動に対する報酬から最適な行動を学習していきます。ブロック崩しなどが該当します。</p>
+                        <h3>2. 対戦ゲーム (Competitive)</h3>
+                        <p><b>二つの対立するエージェント</b>が勝敗を決めるために学習環境下で対戦し、エージェントは対戦を通して得られた報酬によって行動を最適化します。チェスや将棋などが該当します。</p>
+                        <h3>3. 協調ゲーム (Cooperative)</h3>
+                        <p><b>複数のエージェント</b>が単一の目標を達成するために学習環境下で協調しながら学習します。サッカーなどのチーム対戦型のゲーム全般が該当しますが、今回の避難学習のように、対立するエージェントの集団が存在しないタスクも対応可能です。
+                        </p>
+                        <p>従来の強化学習(深層強化学習)の仕組みではこのタスクに対応することが難しかったため、協調ゲームに特化した新たな技法<b>協調型マルチエージェント強化学習</b>が登場しました。</p>
 
-            <p>協調型マルチエージェント強化学習の最大の特徴として、<b>集中学習(centralized learning)</b>と<b>分散実行(decentralized
-                    execution)</b>があります。前述した一般的な強化学習とは異なり、協調型マルチエージェント強化学習では、<b>個々のエージェントが協調して得られる全体の報酬の最大化を目指す</b>のです(集中学習)。個々のエージェントの行動を決定する場合には、<b>各々の置かれた環境に焦点を合わせて</b>最適な行動を決めます(分散実行)。
-            </p>
+                        <p>協調型マルチエージェント強化学習の最大の特徴として、<b>集中学習(centralized learning)</b>と<b>分散実行(decentralized
+                                        execution)</b>があります。前述した一般的な強化学習とは異なり、協調型マルチエージェント強化学習では、<b>個々のエージェントが協調して得られる全体の報酬の最大化を目指す</b>のです(集中学習)。個々のエージェントの行動を決定する場合には、<b>各々の置かれた環境に焦点を合わせて</b>最適な行動を決めます(分散実行)。
+                        </p>
 
-            <p>ML-Agentsにおいて新たに実装された協調型マルチエージェント強化学習のトレーナーとして、<b>MultiAgent POsthumous Credit
-                    Assignment</b>(MA-POCA)があります。</p>
-            <p>MA-POCAでは「Attention」と呼ばれる、動的な入力を処理できるニューラルネットワークを使用しており、これはコーチ(Critic)が任意の数のエージェント(Actor)を処理できるということであり、複数のエージェントをグループとして扱うことで集中学習・分散実行を可能にしています。また、エージェントを任意のタイミングで学習から外したり追加したりできるのです。
-            </p>
-            <p><img src="images/chapter3/ma-poca.png" alt="集中学習"></p>
-            <p class="centering"><small>出典: <a
-                        href="https://morikatron.ai/2021/08/gdc_creating-cooperative-character-behaviors/"
-                        target="_blank" rel="noopener noreferrer">【GDC 2021】マルチエージェント強化学習における協調行動の5つの特徴</a></small></p>
-            <p>詳しくは<a
-                    href="https://blog.unity.com/ja/technology/ml-agents-v20-release-now-supports-training-complex-cooperative-behaviors"
-                    target="_blank" rel="noopener noreferrer">Unityの公式ブログの記事</a>もご覧ください。</p>
+                        <p>ML-Agentsにおいて新たに実装された協調型マルチエージェント強化学習のトレーナーとして、<b>MultiAgent POsthumous Credit
+                                        Assignment</b>(MA-POCA)があります。</p>
+                        <p>MA-POCAでは「Attention」と呼ばれる、動的な入力を処理できるニューラルネットワークを使用しており、これはコーチ(Critic)が任意の数のエージェント(Actor)を処理できるということであり、複数のエージェントをグループとして扱うことで集中学習・分散実行を可能にしています。また、エージェントを任意のタイミングで学習から外したり追加したりできるのです。
+                        </p>
+                        <p><img src="images/chapter3/ma-poca.png" alt="集中学習"></p>
+                        <p class="centering"><small>出典: <a
+                                                href="https://morikatron.ai/2021/08/gdc_creating-cooperative-character-behaviors/"
+                                                target="_blank" rel="noopener noreferrer">【GDC
+                                                2021】マルチエージェント強化学習における協調行動の5つの特徴</a></small></p>
+                        <p>詳しくは<a href="https://blog.unity.com/ja/technology/ml-agents-v20-release-now-supports-training-complex-cooperative-behaviors"
+                                        target="_blank" rel="noopener noreferrer">Unityの公式ブログの記事</a>もご覧ください。</p>
 
-            <p class="footer">強化学習、協調型マルチエージェント強化学習についての説明は以上です。</p>
+                        <p class="footer">強化学習、協調型マルチエージェント強化学習についての説明は以上です。</p>
+                </div>
+
+                <div class="footer">
+                        <p><small>2022 &copy;<a href="https://yuulis.github.io/Yuulis-Home/" target="_blank"
+                                                rel="noopener noreferrer">Yuulis</a></small></p>
+                </div>
         </div>
-
-        <div class="footer">
-            <p><small>2022 &copy;<a href="https://yuulis.github.io/Yuulis-Home/" target="_blank"
-                        rel="noopener noreferrer">Yuulis</a></small></p>
-        </div>
-    </div>
 </body>
 
 </html>
